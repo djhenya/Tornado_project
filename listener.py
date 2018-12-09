@@ -3,7 +3,7 @@ from tornado import gen
 from tornado.ioloop import IOLoop
 from tornado.iostream import StreamClosedError
 from tornado.tcpclient import TCPClient
-from tornado.options import options
+# from tornado.options import options
 
 tcp_client = TCPClient()
 
@@ -17,12 +17,14 @@ async def listen():
             response = response.decode('utf-8').rstrip('\r\n')
             print('response: {}'.format(response))
     except StreamClosedError:
-        print("error connecting")
-        stream.close()
-    except KeyboardInterrupt:
-        stream.close()   
+        print("Server is unavailable.")
+        # stream.close()
+    # except KeyboardInterrupt:
+    #     print("Listener is killed.")
+    #     stream.close()
 
 
 if __name__ == '__main__':
-    options.parse_command_line()
-    IOLoop.instance().run_sync(listen)
+    # options.parse_command_line()
+    print("Listener start.")
+    IOLoop.current().run_sync(listen)

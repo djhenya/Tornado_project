@@ -1,2 +1,4 @@
 help/
 .vscode/
+workspace.code-workspace
+client_test.py
