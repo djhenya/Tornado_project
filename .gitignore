@@ -2,3 +2,6 @@ help/
 .vscode/
 workspace.code-workspace
 client_test.py
+__pycache__/
+*.log
+*.old
